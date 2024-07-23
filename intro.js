@@ -10,5 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function animateComplete() {
-  location.href = 'index.html'; // Naar pagina2.html
+  location.href = 'home.html'; // Naar pagina2.html
 }
