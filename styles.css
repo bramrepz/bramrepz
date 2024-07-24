@@ -1,8 +1,8 @@
-/* Donker Thema */
+/* Basisstijl voor de body */
 body {
-  background-color: #121212;
-  color: #ffffff;
-  margin: 0; /* Verwijder standaardmarges voor een schone opmaak */
+  background-color: #121212; /* Donkere achtergrondkleur */
+  color: #ffffff; /* Witte tekstkleur */
+  margin: 0; /* Verwijder standaardmarges */
   font-family: Arial, sans-serif; /* Basis font */
 }
 
@@ -12,13 +12,13 @@ body {
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Zorgt voor ruimte tussen logo en navigatie */
+  justify-content: space-between; /* Ruimte tussen logo en navigatie */
 }
 
 .header .logo {
   max-height: 50px; /* Pas aan op basis van de grootte van je logo */
-  height: 60px;  /* Stel de hoogte van het logo in */
-  width: auto;   /* Houd de breedte in verhouding */
+  height: 60px; /* Stel de hoogte van het logo in */
+  width: auto; /* Houd de breedte in verhouding */
 }
 
 .header-nav {
@@ -429,4 +429,80 @@ button {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Media Queries */
+
+/* Voor schermen kleiner dan 768px */
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column; /* Zet navigatielinks onder elkaar */
+  }
+
+  .header .search-bar input {
+    padding: 6px;
+  }
+
+  .topProductslist {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topProduct {
+    max-width: 90%; /* Verbreed de productcontainers op kleine schermen */
+  }
+
+  .product-page-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image-container {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .product-image {
+    height: auto; /* Maak de hoogte van de productafbeelding automatisch */
+  }
+}
+
+/* Voor schermen kleiner dan 576px */
+@media (max-width: 576px) {
+  .header .logo {
+    height: 40px; /* Verklein de hoogte van het logo */
+  }
+
+  .header-nav {
+    gap: 10px; /* Verminder de ruimte tussen navigatielinks */
+  }
+
+  .topProduct {
+    max-width: 100%; /* Zorg ervoor dat productcontainers volledig benut worden */
+    height: auto; /* Zorg ervoor dat de hoogte van producten automatisch is */
+  }
+
+  .product-title {
+    font-size: 1.5rem; /* Verklein de fontgrootte van de producttitel */
+  }
+
+  .product-price {
+    font-size: 1.2rem; /* Verklein de fontgrootte van de prijs */
+  }
+
+  .product-description {
+    font-size: 0.9rem; /* Verklein de fontgrootte van de productomschrijving */
+  }
+
+  .contact-info h1 {
+    font-size: 1.5rem; /* Verklein de fontgrootte van de kop op de contactpagina */
+  }
+
+  .contact-info p {
+    font-size: 1rem; /* Verklein de fontgrootte van de tekst op de contactpagina */
+  }
+
+  button {
+    font-size: 0.9rem; /* Verklein de fontgrootte van de knoppen */
+  }
 }
