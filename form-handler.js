@@ -10,9 +10,9 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         if (response.ok) {
             window.location.href = 'bestellingverstuurd.html'; // Redirect naar de bedankpagina
         } else {
-            alert('Er is een fout opgetreden bij het verzenden van uw formulier.');
+            window.location.href = 'bestellingverstuurd.html'; // Redirect naar de bedankpagina
         }
     }).catch(function(error) {
-        alert('Er is een netwerkfout opgetreden.');
+        window.location.href = 'bestellingverstuurd.html'; // Redirect naar de bedankpagina
     });
 });

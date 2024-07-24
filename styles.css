@@ -33,10 +33,6 @@ body {
   font-weight: bold;
 }
 
-.header-nav a:hover {
-  text-decoration: underline; /* Onderstreping bij hover */
-}
-
 .header .search-bar {
   flex-grow: 1;
 }
@@ -78,41 +74,67 @@ body {
   border: 1px solid #343a40;
   border-radius: 8px;
   margin-bottom: 20px;
+  overflow: hidden; /* Voorkom dat inhoud buiten de kaart valt */
+  display: flex;
+  flex-direction: column; /* Zorg ervoor dat de inhoud verticaal gestapeld wordt */
 }
 
 .card-img-top {
+  width: 100%;
+  height: 200px; /* Stel een vaste hoogte in voor afbeeldingen */
+  object-fit: cover; /* Zorg ervoor dat de afbeelding proportioneel blijft en bijgesneden wordt indien nodig */
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 .card-body {
   padding: 15px;
+  flex: 1; /* Laat de body de beschikbare ruimte opvullen */
+  display: flex;
+  flex-direction: column; /* Zorg ervoor dat de inhoud verticaal gestapeld wordt */
 }
 
 .card-title {
   color: #ffffff;
+  margin: 5px 0; /* Ruimte boven en onder de titel */
+  font-size: 14px; /* Vergrote tekstgrootte voor de titel */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Zorg ervoor dat lange titels niet over meerdere regels gaan */
+}
+
+.card-footer {
+  padding: 10px;
+  background-color: #1f1f1f;
+  text-align: center;
 }
 
 /* Tile Styling */
 .tile {
-  cursor: pointer;
-  transition: transform 0.2s;
+  display: block;
+  position: relative;
+  overflow: hidden;
   border: 2px solid #333;
   border-radius: 8px;
   text-decoration: none;
   color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tile img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  transition: transform 0.3s ease;
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .tile img:hover {
-  transform: scale(1.1); /* Scale the image to 110% of its original size */
+  transform: scale(1.1); /* Vergroot de afbeelding met 10% bij hover */
 }
 
 /* Logo Container */
@@ -164,46 +186,62 @@ body {
 .topProduct {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 1 1 250px; /* Flexibele grootte van de producten, minimaal 250px breed */
-  max-width: 300px; /* Maximale breedte van elk product */
+  flex: 1 1 200px; /* Flexibele grootte van de producten, minimaal 200px breed */
+  max-width: 30%; /* Maximale breedte van elk product (30% van de container breedte) */
   box-sizing: border-box; /* Zorg ervoor dat padding en border worden meegerekend in de breedte en hoogte */
   background-color: #1f1f1f; /* Donkere achtergrondkleur voor het product */
   border: 1px solid #343a40; /* Randkleur voor een subtiele scheiding */
   border-radius: 8px; /* Afronding van de hoeken */
-  padding: 15px; /* Ruimte binnen de container */
+  padding: 10px; /* Vergrote ruimte binnen de container */
   position: relative; /* Voor plaatsing van absolute elementen */
+  height: 450px; /* Specifieke hoogte voor elk product */
+  overflow: hidden; /* Zorg ervoor dat inhoud niet buiten de container valt */
+}
+
+.topProduct img {
+  width: 100%; /* Zorg ervoor dat de afbeelding de volledige breedte van de container benut */
+  max-height: 500px; /* Beperk de hoogte van de afbeelding */
+  height: auto; /* Houd de hoogte automatisch in verhouding tot de breedte */
+  object-fit: cover; /* Zorg ervoor dat de afbeelding proportioneel blijft en wordt bijgesneden indien nodig */
+  border-radius: 8px; /* Afronding van de hoeken van de afbeelding */
 }
 
 /* Stijl voor productafbeelding */
 .product-image {
   width: 100%; /* Zorg ervoor dat de afbeelding de volledige breedte van de container benut */
-  height: auto;
-  border-radius: 8px; /* Optioneel, voor afgeronde hoeken */
+  max-height: 200px; /* Beperk de hoogte van de afbeelding om te voorkomen dat deze te groot wordt */
+  height: auto; /* Houd de hoogte automatisch in verhouding tot de breedte */
+  object-fit: cover; /* Zorg ervoor dat de afbeelding proportioneel blijft en bijgesneden wordt indien nodig */
+  border-radius: 8px; /* Afronding van de hoeken van de afbeelding */
 }
 
 /* Stijl voor productinformatie */
 .product-info {
   padding: 10px 0; /* Ruimte rond de productinformatie */
+  font-size: 16px; /* Vergrote tekst voor een beter leesbare uitstraling */
+  flex: 1;
+  overflow: hidden;
 }
 
+/* Stijl voor producttitel en prijs */
 .product-title {
   color: #ffffff;
-  margin: 10px 0; /* Ruimte boven en onder de titel */
-  font-size: 18px; /* Grotere tekst voor de titel */
+  margin: 5px 0; /* Ruimte boven en onder de titel */
+  font-size: 14px; /* Vergrote tekstgrootte voor de titel */
 }
 
 .product-price {
   color: #f8f9fa; /* Lichtere kleur voor de prijs */
   font-weight: bold;
-  margin: 10px 0; /* Ruimte boven en onder de prijs */
-  font-size: 16px; /* Tekstgrootte voor de prijs */
+  margin: 5px 0; /* Ruimte boven en onder de prijs */
+  font-size: 14px; /* Vergrote tekstgrootte voor de prijs */
 }
 
 /* Stijl voor koop nu knop */
 .buy-now {
   display: inline-block;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 10px 15px;
+  font-size: 14px;
   color: white;
   background-color: #007bff; /* Bootstrap Primary Blue */
   text-decoration: none;
@@ -212,7 +250,7 @@ body {
 }
 
 .buy-now:hover {
-  background-color: #021f3d; /* Darker shade of blue for hover effect */
+  background-color: #021f3d; /* Donkere blauwe kleur bij hover */
 }
 
 /* Animatie bij hover op product */
@@ -237,8 +275,10 @@ body {
 }
 
 .product-image {
-  width: 100%;
-  display: none;
+  width: 100%; /* Zorg ervoor dat de afbeelding de volledige breedte van de container benut */
+  height: 60%; /* Beperk de hoogte van de afbeelding als percentage van de containerhoogte */
+  object-fit: cover; /* Zorg ervoor dat de afbeelding proportioneel blijft en wordt bijgesneden indien nodig */
+  border-radius: 8px; /* Afronding van de hoeken van de afbeelding */
 }
 
 .product-image.active {
@@ -375,6 +415,18 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #021f3d; /* Donkere blauwe kleur bij hover */
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Verhouding 16:9, pas dit aan naar wens */
+  height: 0;
+}
+
+.aspect-ratio-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
