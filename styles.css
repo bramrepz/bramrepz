@@ -17,6 +17,8 @@ body {
 
 .header .logo {
   max-height: 50px; /* Pas aan op basis van de grootte van je logo */
+  height: 60px;  /* Stel de hoogte van het logo in */
+  width: auto;   /* Houd de breedte in verhouding */
 }
 
 .header-nav {
@@ -48,11 +50,6 @@ body {
   color: #fff;
 }
 
-.logo {
-  height: 60px;  /* Stel de hoogte van het logo in */
-  width: auto;   /* Houd de breedte in verhouding */
-}
-
 /* Footer styling */
 .footer {
   position: fixed;
@@ -67,6 +64,11 @@ body {
 .footer a {
   color: #ffffff;
   margin: 0 10px;
+}
+
+.footer a svg {
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
 /* Kaartjes */
@@ -89,12 +91,6 @@ body {
 
 .card-title {
   color: #ffffff;
-}
-
-/* SVG Icon Styling */
-.footer a svg {
-  vertical-align: middle;
-  margin-right: 8px;
 }
 
 /* Tile Styling */
@@ -205,20 +201,18 @@ body {
 
 /* Stijl voor koop nu knop */
 .buy-now {
-  display: block;
-  margin: 10px auto 0; /* Automatische marge aan de zijkanten voor centreren */
+  display: inline-block;
   padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
+  font-size: 1rem;
   color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  background-color: #007bff; /* Bootstrap Primary Blue */
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .buy-now:hover {
-  background-color: #0056b3;
+  background-color: #021f3d; /* Darker shade of blue for hover effect */
 }
 
 /* Animatie bij hover op product */
@@ -226,3 +220,89 @@ body {
   transform: scale(1.05); /* Vergroot het product een beetje */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schaduw voor een zwevend effect */
 }
+
+/* Specifieke stijlen voor de productpagina */
+.product-page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.product-image {
+  width: 100%;
+  display: none;
+}
+
+.product-image.active {
+  display: block;
+}
+
+.product-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.product-action {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-action .buy-now {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.product-stock {
+  font-size: 1.2rem;
+  color: red;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.stock-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.old-price {
+  color: #888; /* Grijze kleur voor de oude prijs */
+  text-decoration: line-through; /* Streep door de oude prijs */
+  margin-right: 10px; /* Ruimte tussen oude en nieuwe prijs */
+}
+
+.new-price {
+  color: #d9534f; /* Kleur voor de nieuwe prijs (bijv. rood voor korting) */
+  font-weight: bold; /* Maak de nieuwe prijs vetgedrukt */
+}
+
