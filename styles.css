@@ -320,7 +320,7 @@ body {
 
 .product-stock {
   font-size: 1.2rem;
-  color: red;
+  color: rgb(77, 255, 0);
   margin-top: 5px;
   display: flex;
   align-items: center;
@@ -329,7 +329,7 @@ body {
 .stock-bullet {
   width: 10px;
   height: 10px;
-  background-color: red;
+  background-color: rgb(77, 255, 0);
   border-radius: 50%;
   display: inline-block;
   margin-right: 5px;
